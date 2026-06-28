@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlasticConnect.AI – Recycler Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="logo-icon"><i class="fa-solid fa-recycle"></i></span>
+    <span class="logo-text">PlasticConnect<span class="logo-ai">.AI</span></span>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-page="dashboard"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a>
+    <a href="#" class="nav-item" data-page="profile"><i class="fa-solid fa-building"></i><span>Company Profile</span></a>
+    <a href="#" class="nav-item" data-page="collectors"><i class="fa-solid fa-users"></i><span>Collector Records</span></a>
+    <a href="#" class="nav-item" data-page="buyers"><i class="fa-solid fa-handshake"></i><span>Buyer Management</span></a>
+    <a href="#" class="nav-item" data-page="analytics"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a>
+    <a href="#" class="nav-item" data-page="payments"><i class="fa-solid fa-credit-card"></i><span>Payments &amp; Accounts</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="avatar">RC</div>
+      <div>
+        <div class="avatar-name">RecyclerCo</div>
+        <div class="avatar-role">Admin</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN WRAPPER -->
+<div class="main-wrapper" id="mainWrapper">
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+      <div class="global-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="globalSearch" placeholder="Search modules, collectors, buyers…" />
+        <div class="search-dropdown" id="searchDropdown"></div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="icon-btn" id="themeToggle" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon-btn notif-btn" id="notifBtn">
+        <i class="fa-solid fa-bell"></i>
+        <span class="badge" id="notifBadge">4</span>
+      </button>
+      <div class="avatar-wrap">
+        <div class="avatar">RC</div>
+        <div class="avatar-info">
+          <span class="avatar-name">RecyclerCo</span>
+          <span class="avatar-role">Admin</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NOTIFICATION PANEL -->
+  <div class="notif-panel hidden" id="notifPanel">
+    <div class="notif-header">
+      <span>Notifications</span>
+      <button id="clearNotif">Clear All</button>
+    </div>
+    <div id="notifList"></div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-content" id="pageContent"></main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <h3 id="modalTitle">Modal</h3>
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<!-- CONFIRM DIALOG -->
+<div class="modal-overlay hidden" id="confirmOverlay">
+  <div class="modal confirm-modal">
+    <div class="modal-header">
+      <h3><i class="fa-solid fa-triangle-exclamation"></i> Confirm Action</h3>
+    </div>
+    <div class="modal-body"><p id="confirmMsg">Are you sure?</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="confirmCancel">Cancel</button>
+      <button class="btn btn-danger" id="confirmOk">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
